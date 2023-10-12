@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="description" content="Webpage description goes here" />
+  <meta charset="utf-8">
+  <title>Using MediaRecorder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="">
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+  <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+</canvas>
+
+<select id="inputdevices"></select>
+
+</div>
+
+<script>
+  const canvas = document.querySelector("canvas");
+
+// Optional frames per second argument.
+const stream = canvas.captureStream(25);
+const recordedChunks = [];
+
+console.log("stream--->")
+console.log(stream);
+console.log("<---stream")
+const options = { mimeType: "video/webm; codecs=vp9" };
+const mediaRecorder = new MediaRecorder(stream, options);
+
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.moveTo(0, 0);
+ctx.lineTo(200, 100);
+ctx.stroke();
+mediaRecorder.ondataavailable = handleDataAvailable;
+
+mediaRecorder.start();
+
+
+
+function handleDataAvailable(event) {
+  console.log("data-available");
+  console.log(event.data)
+  if (event.data.size > 0) {
+    recordedChunks.push(event.data);
+    console.log(recordedChunks);
+    download();
+  } else {
+    console.log("not yet")
+  }
+}
+function download() {
+  const blob = new Blob(recordedChunks, {
+    type: "video/webm",
+  });
+  const url = URL.createObjectURL(blob);
+  console.log(url)
+  const a = document.createElement("a");
+  document.body.appendChild(a);
+  //a.style = "display: none";
+  a.href = url;
+  a.text="allallai"
+  //a.download = "test.webm";
+  //a.click();
+  //window.URL.revokeObjectURL(url);
+}
+
+// demo: to download after 9sec
+setTimeout((event) => {
+  console.log("stopping");
+  mediaRecorder.stop();
+}, 4000);
+
+navigator.mediaDevices.enumerateDevices().then((devices) => {
+  devices.forEach((device) => {
+    const menu = document.getElementById("inputdevices");
+    //if (device.kind === "audioinput") {
+      const item = document.createElement("option");
+      item.textContent = device.label;
+      item.value = device.deviceId;
+      menu.appendChild(item);
+
+    //}
+  });
+});
+
+
+</script>
+
+</body>
+</html>

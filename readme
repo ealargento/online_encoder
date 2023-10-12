@@ -1,0 +1,144 @@
+
+
+--------------------------------------
+Monday, october 9th, 2023
+
+Finally, the problem was found: the missing piece for our encoder to work was
+
+mediaRecorder.start(1000);
+
+actually this line of code was present only it didnt have an argument; the argument passed (1000) represents milliseconds, which is how often the dataavailable event will fire.
+
+-----------------------------------------------
+Friday, october 6th, 2023
+
+
+----------------------------------------
+Monday, September 18th, 2023
+
+Webcast protocol apparently can be used with only a couple of lines of code (see: https://github.com/webcast/webcast.js/tree/main/examples/webcam), but it seems to have many options and to use those it seems you need to read some more (maybe a lot more!).
+
+So first thing that needs to be done is get the webcam code (the one in the link above), turn it into a sound version which shouldnt be hard, and test it with liquidsoap.
+
+On encoder.htm it was copied the index.htm for that webcam app
+
+-----------------------------------------
+Sunday, September 17th, 2023
+
+understanding how mediaRecorder works and associated stuff: reading this material at:
+
+https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API
+
+-----------------------------------------
+
+Saturday,September 9th, 2023
+
+IMPORTANT: when running liquidsoap (on new terminal) it is necessary to run "eval $(opam env)"
+
+-----------------------------------------
+
+Wednesday, September 6th, 2023
+
+our installed version of liquidsoap (you can get it by typing on shell opam info liquidsoap) is 2.1.4
+
+
+------------------------------------------
+Sunday, August 27th, 2023
+
+Installatiion of Liquidsoap (latest version) in process. First installing opam.
+
+MediaStream Recoding API is one of the 2 main APIs used by the webcast protocol; here is good content about that:
+
+https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API
+https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder
+
+Finally! The webcaster is working now (from the website, not from my local server yet as I havent even tested) with liquidsoap. A change in the version and installation of ffmpeg library (by the way you could write to them to let them know of this misspelling: ffpmeg). Also it was needed the ao library as the way I installed was not through binaries and not even basic things were installed. But thank God it is now working!
+
+------------------------------------------
+
+Thursday, August, 24th, 2023
+
+I just realized that the version I have installed (liquidsoap's) is 1.3.3 and the book tells you that they assume you have installed version (at least) 2.2. The most likely thing is that the webcast.js protocol is not implemented for my very old 1.3.3 version. So I will have to update i guess. Thank God!!
+
+
+
+------------------------------------------
+
+Tuesday, August 22nd, 2023
+
+Installing the ocam package manager to get the libraries for liquidsoap (suspicious that it does not have them all)
+
+------------------------------------------
+Sunday, August 20th, 2023
+(from now on entries will be ordered having newest on top)
+
+Attempting to execute the web server in node
+
+the http-server package was cloned and into this folder the client.js and client.css files were inserted (in public folder, without the js and css folders respectively because there is some error if not like this).
+
+Liquidsoap has this message when the start recording button is hit in the webcaster interface: "Unable to decode stream of type "audio/webm"!"
+
+Who knows what that is...
+
+------------------------------------------
+previous days are ordered from oldes to newest
+------------------------------------------
+
+Tuesday, July 25th, 2023
+
+A previous research was carried out to know the availability of tools (online type) that let you stream right straight from browser. So far none was found: all the tools found, at least the popular ones require you to install a desktop app. None of the websites found offer to get audio streaming straight from browser...
+
+https://www.veed.io/tools
+This folks offer a free tool to record online, right straight from browser. But no option for streaming.
+
+
+https://web.dev/media-recording-audio/
+From this website it is appearent that transmitting online from browser wont seem to be a complicated issue...
+
+----------------------------------------
+
+Wednesday, July 26th, 2023
+
+Scope: the project will consist of an online encoder of audio signal that will get signal straight from browser. This could help many to establish an online stream for radio station.
+
+It could also have a recording functionality.
+
+The technologies used will be JS, node.js, react, redux
+
+We learned today how to get control of the mic through the getUserMedia method.
+
+To read: https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
+
+https://stackoverflow.com/questions/39811718/stream-audio-from-browser-to-icecast
+
+http://webcast.github.io/  ("""I think this is it!)
+
+-----------------------------------------
+
+Thursday, August 3rd, 2023
+
+It seems like the only way to use the stream encoded by webcast is through "liquidsoap". Ideallly, we want the browser to connect directly to the icecast server, but if there is no way to do that we could have a backend running with liquidsoap and the webcast could connect to it
+
+-----------------------------------------
+
+Friday, August 4th, 2023
+
+we continue to try to find a way to connect browser directly to icecast server.
+
+- Remember: Webcast.js is a library while the Web Audio API is an API used by webcast.js to get the work done. So you wouldn't need to use webcast.js necessarily, but Web Audio API for sure you need.
+
+- Found no tutorial of webcast.js; it seems like i will have to get the example code and try to use it myself. Maybe I can send mail to one of those developers for some help.
+
+------------------------------------------
+Friday, August 11th, 2023
+
+It seems like trying to stream to an icecast server directly from "webcaster" is going to be complicated (and up to this point in time i dont know if this is possible), so for now liquidsoap is going to be used as an intermediary (so the project will have to involve some backend so have the liquidsoap server running).
+
+The people from liquidsoap seem to be the ones who actually developed the webcast.js library and protocol as can be interpreted from liquidsoap book.
+
+Liquidsoap was installed on the local computer.
+
+------------------------------------------
+Wednesday, agust 16
+
+It was downloaded with git the webcaster. Apparently the webserver i coded with http module in node is just not enough. So i downloaded a new one but still need to know why it s not working
