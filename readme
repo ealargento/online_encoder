@@ -1,9 +1,20 @@
+--------
+Wednesday, october 25th, 2023
+
+Getting start button and coding first steps in html of front page
+
+
+--------------------------------------
+Saturday, october 21st, 2023
+
+I have forgotten a lot of development on React. The best would be to go through henry's introductory module and do the examples described there. Then as we progress we can do parts of our endoder
+
 
 
 --------------------------------------
 Monday, october 9th, 2023
 
-Finally, the problem was found: the missing piece for our encoder to work was
+Finally, the problem was found: the missing piece for our encoder to work was:
 
 mediaRecorder.start(1000);
 
