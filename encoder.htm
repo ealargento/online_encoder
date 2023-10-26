@@ -20,6 +20,8 @@
 
     const url="ws://source:hackme@localhost:8080/mount";
 
+    var scope={}
+
     navigator.mediaDevices.getUserMedia(
       // constraints - only audio needed for this app
       {
@@ -30,26 +32,30 @@
 
     ).then((stream) => {
 
-      console.log(stream)
+      //stackoverflow helped me here!: i didnt know how to get access to a variable declared in the callback of a promise, but here is how: you declared a variable outside of a promise and then you reference in the callback that variable to assign it the variable you want! duhhh
 
-      const mediaRecorder= new MediaRecorder(stream,{ mimeType: "audio/webm;codecs=opus"})
+      scope.stream=stream;
 
+    })
+
+
+    function startbutton(){
+
+      scope.mediaRecorder= new MediaRecorder(scope.stream,{ mimeType: "audio/webm;codecs=opus"})
 
       const ws = new Webcast.Socket({
-        mediaRecorder: mediaRecorder,
+        mediaRecorder: scope.mediaRecorder,
         url: url,
         info: {}
       })
 
+      scope.mediaRecorder.start(1000)
+    }
 
-      //mediaRecorder.start(1000);
+    function stopbutton(){
 
-    })
-    function startbutton(){console.log("listo")
-  }
-
-
-
+      scope.mediaRecorder.stop()
+    }
 
     </script>
 
@@ -67,7 +73,7 @@
 
     <div>
       <button id="start" type="button" onclick="startbutton()">Start</button>
-      <button id="stop" type="button">Stop</button>
+      <button id="stop" type="button" onclick="stopbutton()">Stop</button>
     </div>
 
 
