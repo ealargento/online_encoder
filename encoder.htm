@@ -18,7 +18,7 @@
 
     <script>
 
-    const url="ws://source:hackme@localhost:8080/mount";
+    const url="ws://source:hackme@localhost:8081/mount";
 
     var scope={}
 
@@ -37,7 +37,6 @@
       scope.stream=stream;
 
     })
-
 
     function startbutton(){
 
@@ -76,7 +75,13 @@
       <button id="stop" type="button" onclick="stopbutton()">Stop</button>
     </div>
 
+    <div>
+      <h3>Status:</h3>
+      <input id="status" value="Retreiving Status..." readonly>
+    </div>
 
+    <div id="settings">
+      <h3>Settings:</h3>
     <form id="server-params">
       <label>Server</label>
       <input id="server" value="localhost">
@@ -89,5 +94,6 @@
       <label>Pass</label>
       <input id="password" value="hackme">
     </form>
+    </div>
   </body>
 </html>
