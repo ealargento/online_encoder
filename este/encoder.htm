@@ -18,7 +18,7 @@
 
     <script>
 
-    const url="ws://source:hackme@localhost:8081/mount";
+    const url="ws://source:hackme@localhost:8080/mount";
 
     var scope={}
 
@@ -42,11 +42,14 @@
 
       scope.mediaRecorder= new MediaRecorder(scope.stream,{ mimeType: "audio/webm;codecs=opus"})
 
-      const ws = new Webcast.Socket({
+      scope.ws = new Webcast.Socket({
         mediaRecorder: scope.mediaRecorder,
         url: url,
         info: {}
       })
+      console.log("hola")
+      console.log(scope.ws.socket.url)
+      console.log(scope.ws.socket.readyState)
 
       scope.mediaRecorder.start(1000)
     }

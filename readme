@@ -1,3 +1,29 @@
+Wednesday, December 13, 2023
+
+
+
+
+----------------------------------------
+
+Friday, November 24th, 2023
+
+Page 140 describes something that can be useful: a web server that gives you access to manipulate variables
+
+-----------------------------------------
+
+Monday, November 20th, 2023
+
+Refer to page 184 of book. Maybe if there is an example there it would be advisable to do it
+
+-----------------------------------------
+Monday, october 30th, 2023
+
+studying the posibilities to execute new instances of liquidsoap with new users:
+
+1. Using node.js of course
+2. Using liquidsoap itself which has this included (page 168 of book, section 6.8)
+
+--------------------------------------
 Thursday, october 27th, 2023
 
 Added the code for start and stop buttons
