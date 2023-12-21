@@ -1,5 +1,15 @@
-Sunday, December 17, 2023
 
+Thursday, December 21, 2023
+
+On editing the settings for the online decoder there possibly needs to be a restart of the server (so we need to code that) a message warning the user the server will reboot.
+
+We can use variables declared outside of the settings function to hold the settings parameters, maybe even a list.
+
+--------------------------------
+
+Monday, December 18, 2023
+
+Learning how to access data parameter in settings handler function: data is string type.
 
 
 

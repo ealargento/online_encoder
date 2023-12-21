@@ -85,17 +85,19 @@
 
     <div id="settings">
       <h3>Settings:</h3>
-    <form id="server-params">
+    <form id="server-params" method="post" action="/toma">
       <label>Server</label>
       <input id="server" value="localhost">
       <label>Port</label>
-      <input id="port" type="number" value="8000">
+      <input id="port" type="number" name="port" value="8000">
       <label>Mount</label>
       <input id="mount" value="mount">
       <label>User</label>
-      <input id="user" value="source">
+      <input id="user" value="source" name="user">
       <label>Pass</label>
       <input id="password" value="hackme">
+
+      <input type="submit">
     </form>
     </div>
   </body>
