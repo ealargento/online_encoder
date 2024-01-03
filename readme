@@ -1,17 +1,30 @@
 
+
+Wednesday, January 03, 2024
+
+"Discovered" the Association lists and the function url.split_args():
+
+m=url.split_args(data)
+gmount:=m["mount"]
+
+So far in this version of code it s possible to change the mount parameter for connecting to zeno media. It s working fine. I thought that it would be necessary to restart server, but once the start button on browser is clicked, the server starts running again.
+
+
+--------------------------------
+
 Thursday, December 21, 2023
 
 On editing the settings for the online decoder there possibly needs to be a restart of the server (so we need to code that) a message warning the user the server will reboot.
 
 We can use variables declared outside of the settings function to hold the settings parameters, maybe even a list.
 
+We need to get familiar with "Getters" on page 60 of book
+
 --------------------------------
 
 Monday, December 18, 2023
 
 Learning how to access data parameter in settings handler function: data is string type.
-
-
 
 ---------------------------------
 
