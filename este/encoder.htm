@@ -95,10 +95,60 @@
       <label>User</label>
       <input id="user" value="source" name="user">
       <label>Pass</label>
-      <input id="password" value="hackme">
+      <input id="password" value="hackme" name="password">
 
-      <input type="submit">
+      <button type="submit">Submit</button>
     </form>
     </div>
+
+    <script>
+    document.getElementById('server-params').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the form from submitting
+
+      // Retrieve form values
+  const server = document.getElementById('server').value;
+  const port = document.getElementById('port').value;
+  const mount = document.getElementById('mount').value;
+  const password = document.getElementById('password').value;
+
+      submitForm(server, port, mount, password);
+    })
+
+    function submitForm(server, port, mount, password) {
+
+  // Code to submit the form data to the server
+  // Here, we'll use the fetch() function to POST the data to an API endpoint
+  fetch('http://localhost:8080/toma', {
+    method: 'POST',
+    body: JSON.stringify({ server, port, mount, password }),
+
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+
+    },
+  })
+    .then(response => response.json())
+    .then(data => {
+      // Handle the response from the server
+      console.log(data);
+      alert('Form submitted successfully!');
+    })
+    .catch(error => {
+      // Handle any errors that occur during form submission
+      console.error(error);
+      alert('An error occurred while submitting the form.');
+    });
+}
+
+
+
+
+
+
+    </script>
+
+
+
+
   </body>
 </html>
