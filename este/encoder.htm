@@ -89,7 +89,7 @@
       <label>Server</label>
       <input id="server" value="localhost">
       <label>Port</label>
-      <input id="port" type="number" name="port" value="8000">
+      <input id="port" type="number" name="port" value=8000>
       <label>Mount</label>
       <input id="mount" value="mount" name="mount">
       <label>User</label>
@@ -107,7 +107,7 @@
 
       // Retrieve form values
   const server = document.getElementById('server').value;
-  const port = document.getElementById('port').value;
+  const port = Number(document.getElementById('port').value);
   const mount = document.getElementById('mount').value;
   const password = document.getElementById('password').value;
 
@@ -116,18 +116,23 @@
 
     function submitForm(server, port, mount, password) {
 
+      a={ server, port, mount, password }
+      console.log(a)
+      x=JSON.stringify(a)
+      console.log(x)
   // Code to submit the form data to the server
   // Here, we'll use the fetch() function to POST the data to an API endpoint
   fetch('http://localhost:8080/toma', {
     method: 'POST',
-    body: JSON.stringify({ server, port, mount, password }),
+    body: x,
 
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
 
     },
   })
-    .then(response => response.json())
+    //.then(response => response.json())
+    .then(response => console.log(server))
     .then(data => {
       // Handle the response from the server
       console.log(data);

@@ -1,3 +1,9 @@
+Sunday, January 21st, 2024
+
+It was found errors about using json.Solved! Now we are finding out that variables (references) are not being updated in decoder with the parameters for connecting to zeno server. Why? dont know yet!
+
+
+--------------------------------
 Friday, January 12th, 2024
 
 It was added the functionality of asincronously POST to update/register parameters for broadcasting to icecast server. Now the data is formatted to JSON so that needs to be fixed in server.
