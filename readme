@@ -1,3 +1,10 @@
+Monday, January 22nd, 2024
+
+we tried to dynamicly modify the parameters with references, but it is not working. So we will try with the .shutdown() method (see here https://www.liquidsoap.info/doc-2.1.4/phases.html) to shut down the output.icecast(...) instruction and re creating it again every time a parameter is changed.
+
+
+-------------------------------
+
 Sunday, January 21st, 2024
 
 It was found errors about using json.Solved! Now we are finding out that variables (references) are not being updated in decoder with the parameters for connecting to zeno server. Why? dont know yet!
