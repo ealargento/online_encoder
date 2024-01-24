@@ -18,7 +18,8 @@
 
     <script>
 
-    const url="ws://source:hackme@localhost:8080/mount";
+    //const url="ws://source:hackme@localhost:8080/mount";
+    const url="ws://source:hackme@192.168.1.89:8080/mount";
 
     var scope={}
 
@@ -86,15 +87,21 @@
     <div id="settings">
       <h3>Settings:</h3>
     <form id="server-params" method="post" action="/toma">
+      
       <label>Server</label>
+      <label>link.zeno.fm</label>
       <input id="server" value="localhost">
       <label>Port</label>
       <input id="port" type="number" name="port" value=8000>
       <label>Mount</label>
+      <label>lwyvqqrr387uv</label>
+
       <input id="mount" value="mount" name="mount">
       <label>User</label>
       <input id="user" value="source" name="user">
       <label>Pass</label>
+      <label>R5gFrWkG</label>
+
       <input id="password" value="hackme" name="password">
 
       <button type="submit">Submit</button>
@@ -122,7 +129,8 @@
       console.log(x)
   // Code to submit the form data to the server
   // Here, we'll use the fetch() function to POST the data to an API endpoint
-  fetch('http://localhost:8080/toma', {
+  //fetch('http://localhost:8080/toma', {
+  fetch('http://192.168.1.89:8080/toma', {
     method: 'POST',
     body: x,
 

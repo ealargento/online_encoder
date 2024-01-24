@@ -1,3 +1,24 @@
+Wednesday, January, 24th, 2024
+
+Today was the first time that I could perform a test on a mobile browser...    and thank God it worked finely! There were several steps taken today in order to get to that: i needed to enable debugging for my cel phone's chrome browser, which i knew it s actually done remotely from a pc chrome browser.
+
+Then i knew that there was this error: cannot read property 'getusermedia' of undefined; that is happening apparently because the liquidsoap server used is not https. But anyways as a test it was possible from the mobile browser to activate the option of navigating to a "unsecure" site, thus enabling the use of "getUserMedia"
+
+Prior to that it was changed the .liq code so that the output.icecast(...) instruction could be shutdown and restarted again in the "settings" handler. Apparently, when radio.shutdown() is executed the "input.harbor("mount",port=8080)" argument might need to be shutdown as well (¿?) because of this message:
+
+Error when starting input.harbor_3: Error.Invalid_value(_, "A source is already register for this mountpoint '/mount' and port 8080.")!
+
+which didn't prevent the system from working, but might in the future...
+
+Next time it is necessary to make the exact same test, but this time getting the stream from the "line in" port on the phone, cause that's the actual way the sound is going to be transmitted (by connecting an RCA cable to the mixer)
+
+Another thing that needs to be better programed is updating URLs in .htm file for the Webcast protocol part and for the fetch instruction.
+
+The test sounded loud and clear. Mics on cellphones are really good nowadays
+
+Thank you Lord for today!
+-------------------------------
+
 Monday, January 22nd, 2024
 
 we tried to dynamicly modify the parameters with references, but it is not working. So we will try with the .shutdown() method (see here https://www.liquidsoap.info/doc-2.1.4/phases.html) to shut down the output.icecast(...) instruction and re creating it again every time a parameter is changed.
