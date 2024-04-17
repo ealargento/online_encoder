@@ -1,3 +1,13 @@
+Wednesday, April, 17th, 2024
+
+Resuming the project...    it took a while to get familiar with code again (and have not finished!).
+
+I need to get a server with https support and the current version of liquidsoap installed does not support that. So I have 2 options:
+
+1. Update to the newest version. I will need to change some things in the code (.liq script)
+
+2. Set a node.js https server and have this communicate with the script i developed. Gonna have to surely add a couple of lines to .liq script, but anyways it s good i practice node, node has a lot more documentation. I just need  to make sure that my current .liq will have no problem comunicating with this node sript. So before any further development on node i first need to check communication.
+______________________________________
 Wednesday, January, 24th, 2024
 
 Today was the first time that I could perform a test on a mobile browser...    and thank God it worked finely! There were several steps taken today in order to get to that: i needed to enable debugging for my cel phone's chrome browser, which i knew it s actually done remotely from a pc chrome browser.
